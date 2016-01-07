@@ -1,4 +1,5 @@
 .uk-form
   = form_for @meshiya, url: register_path  do |f|
-    = f.label :name, "店名"
-    = f.text_field :name
+    %fieldset.data-uk-margin
+        = f.text_field :name, placeholder: "店名"
+        = f.text_field :dayoff, placeholder: "定休日"
