@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
 
-
-  scope :meshi do
-    get '/', to: 'meshiyas#index'
-    post '/', to: 'meshiyas#create'
-    get 'pick', to: 'meshiyas#pick'
-    get 'register', to: 'meshiyas#new'
-    scope :api, { format: 'json' } do 
-      get 'pick', to: 'meshiyas_api#pick'
-      get 'list', to: 'meshiyas_api#list'
-    end
+  get '/', to: 'meshiyas#index'
+  get 'pick', to: 'meshiyas#pick'
+  get 'register', to: 'meshiyas#new'
+  post 'register', to: 'meshiyas#create'
+  scope :api, { format: 'json' } do 
+    get 'pick', to: 'meshiyas_api#pick'
+    get 'list', to: 'meshiyas_api#list'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

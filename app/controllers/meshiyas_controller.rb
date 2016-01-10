@@ -12,7 +12,8 @@ class MeshiyasController < ApplicationController
     @meshiya = Meshiya.new
   end
 
-  def create meshiya
-    Meshiya.create meshiya
+  def create
+    @meshiya = Meshiya.create params.require(:meshiya).permit(:name, :genre, :dayoff, :open, :close)
+    redirect_to "/" , notice: "飯屋を登録しました" 
   end
 end
