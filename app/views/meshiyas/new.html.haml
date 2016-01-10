@@ -1,5 +1,5 @@
 .uk-form
-  = form_for @meshiya, url: register_path  do |f|
+  = form_for @meshiya, url: register_path, html: {method: "create"} do |f|
     %fieldset.data-uk-margin
       .uk-form-row
         = f.text_field :name, placeholder: "店名"
