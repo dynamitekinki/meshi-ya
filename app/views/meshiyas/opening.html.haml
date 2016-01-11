@@ -1,5 +1,5 @@
 %h1.uk-text-center
-  全飯屋
+  開いてる飯屋
 
 %h2.uk-text-center
   - t = Time.now
@@ -28,5 +28,5 @@
             = "翌" if meshiya.open > meshiya.close
             = meshiya.close.strftime("%-H:%M")
 
-  %a.uk-button.uk-button-large.uk-button-primary.uk-flex.uk-flex-center{href: '/'}
-    開いてる飯屋は……？
+  %a.uk-button.uk-button-large.uk-button-primary.uk-flex.uk-flex-center{href: '/pick'}
+    今日の飯屋は……？

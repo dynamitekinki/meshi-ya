@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get '/', to: 'meshiyas#index'
+  get '/', to: 'meshiyas#opening'
+  get 'list', to: 'meshiyas#index'
   get 'pick', to: 'meshiyas#pick'
   get 'register', to: 'meshiyas#new'
   post 'register', to: 'meshiyas#create'
