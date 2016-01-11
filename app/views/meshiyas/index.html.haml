@@ -4,9 +4,9 @@
 %h2.uk-text-center
   - t = Time.now
   %p
-    = t.strftime("%Y年%m月%d日(#{%w(日 月 火 水 木 金 土)[t.wday]})")
+    = t.strftime("%Y年%-m月%-d日(#{%w(日 月 火 水 木 金 土)[t.wday]})")
   %p
-    = t.strftime("%H時%M分")
+    = t.strftime("%-H時%M分")
 
 .uk-width-9-10.uk-container-center
   %table.uk-table.uk-table-hover.uk-table-striped.uk-table-condensed
@@ -19,14 +19,15 @@
         %th 閉店時間
     %tbody
       - @meshiyas.each do |meshiya|
-        %tr
+        %tr{"data-href": meshiya_path(meshiya.id)}
           %td= meshiya.name
           %td= meshiya.genre
           %td= meshiya.dayoff
           %td= meshiya.open.strftime("%-H:%M")
-          %td
+          %td<
             = "翌" if meshiya.open > meshiya.close
             = meshiya.close.strftime("%-H:%M")
 
-  %a.uk-button.uk-button-large.uk-button-primary.uk-flex.uk-flex-center{href: '/'}
+  %a.uk-button.uk-button-large.uk-button-primary.uk-flex.uk-flex-center{href: root_path}
     開いてる飯屋は……？
+

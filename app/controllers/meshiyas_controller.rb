@@ -1,10 +1,19 @@
 class MeshiyasController < ApplicationController
+  # Root
   def opening
     @meshiyas = Meshiya.opening_list
   end
 
   def index
     @meshiyas = Meshiya.all
+  end
+
+  def show
+    @meshiya = Meshiya.find(params[:id])
+  end
+
+  def edit
+    @meshiya = Meshiya.find(params[:id])
   end
 
   def pick
@@ -17,8 +26,21 @@ class MeshiyasController < ApplicationController
   end
 
   def create
-    @meshiya = Meshiya.create meshiya_params
-    redirect_to "/" , notice: "飯屋を登録しました" 
+    @meshiya = Meshiya.new meshiya_params
+    if @meshiya.save
+      redirect_to root_path , notice: "飯屋を登録しました" 
+    else
+      render "new"
+    end
+  end
+
+  def update
+    @meshiya = Meshiya.find(params[:id])
+    if @meshiya.update meshiya_params
+      redirect_to root_path , notice: "飯屋を登録しました" 
+    else
+      render "edit"
+    end
   end
 
   private
