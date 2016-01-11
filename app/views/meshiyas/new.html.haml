@@ -1,14 +1,17 @@
 .uk-form
-  = form_for @meshiya, url: register_path, html: {method: "create"} do |f|
+  = form_for @meshiya do |f|
     %fieldset.data-uk-margin
       .uk-form-row
         = f.text_field :name, placeholder: "店名"
+      .uk-form-row
         = f.text_field :genre, placeholder: "ジャンル"
+      .uk-form-row
         = f.text_field :dayoff, placeholder: "定休日"
       .uk-form-row
         = f.label :open, "開店時間"
         = f.datetime_select :open, discard_day: true, discard_month: true, discard_year: true
+      .uk-form-row
         = f.label :close, "閉店時間"
         = f.datetime_select :close, discard_day: true, discard_month: true, discard_year: true
       .uk-form-row
-        = f.submit "登録", class: "uk-button"
+        = f.submit "登録", class: "uk-button uk-button-large uk-button-primary"

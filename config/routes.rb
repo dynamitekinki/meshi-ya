@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
-  get '/', to: 'meshiyas#opening'
-  get 'list', to: 'meshiyas#index'
+  root "meshiyas#opening"
   get 'pick', to: 'meshiyas#pick'
-  get 'register', to: 'meshiyas#new'
-  post 'register', to: 'meshiyas#create'
+  resources :meshiyas
+#  get '/', to: 'meshiyas#opening'
+#  get 'list', to: 'meshiyas#index'
+#  get 'pick', to: 'meshiyas#pick'
+#  get 'register', to: 'meshiyas#new'
+#  post 'register', to: 'meshiyas#create'
   scope :api, { format: 'json' } do 
     get 'pick', to: 'meshiyas_api#pick'
     get 'list', to: 'meshiyas_api#list'

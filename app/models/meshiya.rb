@@ -1,4 +1,8 @@
 class Meshiya < ActiveRecord::Base
+  validates :name, presence: true
+  validates :open, presence: true
+  validates :close, presence: true
+
   scope :opening, -> time {
     a = Meshiya.arel_table[:open].lt(time)
     b = Meshiya.arel_table[:close].gt(time)

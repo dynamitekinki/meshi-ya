@@ -16,11 +16,11 @@
           Meshi-ya
         %ul.uk-navbar-nav
           %li
-            %a{:href => "/pick"} Pick One
+            =link_to "Pick One", pick_path
           %li
-            %a{:href => "/list"} All Meshiya
+            =link_to "All Meshiya", meshiyas_path
           %li
-            %a{:href => "/register"} Register
+            =link_to "Register", new_meshiya_path
 
       = yield
 
